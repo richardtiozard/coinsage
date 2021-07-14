@@ -436,3 +436,12 @@ C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debu
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Azure.Identity.dll
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Azure.Storage.Files.Shares.dll
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Azure.Storage.Queues.dll
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Azure.dll
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\Blob\CreateBlobContainer.cshtml.g.cs

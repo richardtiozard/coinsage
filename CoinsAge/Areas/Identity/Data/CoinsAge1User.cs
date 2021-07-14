@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoinsAge.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace CoinsAge.Areas.Identity.Data
@@ -23,5 +24,6 @@ namespace CoinsAge.Areas.Identity.Data
 
         [PersonalData]
         public string Role { set; get; }
+
     }
 }

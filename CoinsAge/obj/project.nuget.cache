@@ -1,9 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "UtKcQbYON3YX1QKVARWBsKrdyX3F+PfZfUkhFitYW3GM401TVmT86jNadAf5X3hn0u9QBUwh6eBSgWdgkrU8Pg==",
+  "dgSpecHash": "4P63EhOdRekJC/r8CytwA2+6cgGpCRX07fbLJN9pM8U1rQwcwQ7jQoy5pGiHcxBnr0rqEynLMmX39xoaZ+DvJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jason Liadi\\Desktop\\APU Y3S6\\DDAC\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\azure.core\\1.0.2\\azure.core.1.0.2.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\azure.identity\\1.0.0\\azure.identity.1.0.0.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\azure.storage.blobs\\12.3.0\\azure.storage.blobs.12.3.0.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\azure.storage.common\\12.2.0\\azure.storage.common.12.2.0.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\azure.storage.files.shares\\12.1.0\\azure.storage.files.shares.12.1.0.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\azure.storage.queues\\12.2.0\\azure.storage.queues.12.2.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.15\\microsoft.aspnetcore.cryptography.internal.3.1.15.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.15\\microsoft.aspnetcore.cryptography.keyderivation.3.1.15.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
@@ -31,6 +37,7 @@
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.15\\microsoft.entityframeworkcore.relational.3.1.15.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.15\\microsoft.entityframeworkcore.sqlserver.3.1.15.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.15\\microsoft.entityframeworkcore.tools.3.1.15.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.extensions.azure\\1.0.0\\microsoft.extensions.azure.1.0.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.15\\microsoft.extensions.caching.abstractions.3.1.15.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.15\\microsoft.extensions.caching.memory.3.1.15.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.15\\microsoft.extensions.configuration.3.1.15.nupkg.sha512",
@@ -47,7 +54,7 @@
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.15\\microsoft.extensions.logging.abstractions.3.1.15.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.extensions.options\\3.1.15\\microsoft.extensions.options.3.1.15.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.15\\microsoft.extensions.primitives.3.1.15.nupkg.sha512",
-    "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.identity.client\\3.0.8\\microsoft.identity.client.3.0.8.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.identity.client\\4.1.0\\microsoft.identity.client.4.1.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.5.0\\microsoft.identitymodel.jsonwebtokens.5.5.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.identitymodel.logging\\5.5.0\\microsoft.identitymodel.logging.5.5.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\microsoft.identitymodel.protocols\\5.5.0\\microsoft.identitymodel.protocols.5.5.0.nupkg.sha512",
@@ -89,7 +96,7 @@
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
-    "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
@@ -127,6 +134,7 @@
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
@@ -174,7 +182,8 @@
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Jason Liadi\\.nuget\\packages\\windowsazure.storage\\9.3.3\\windowsazure.storage.9.3.3.nupkg.sha512"
   ],
   "logs": []
 }
