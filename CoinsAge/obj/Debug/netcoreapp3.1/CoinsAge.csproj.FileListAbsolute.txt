@@ -445,3 +445,9 @@ C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debu
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Azure.dll
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\bin\Debug\netcoreapp3.1\Microsoft.WindowsAzure.Storage.dll
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\Blob\CreateBlobContainer.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\Blob\ListItemsAsGallery.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\News\Create.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\News\Delete.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\News\Details.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\News\Edit.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\News\Index.cshtml.g.cs

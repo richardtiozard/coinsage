@@ -12,6 +12,8 @@ using Microsoft.Extensions.Azure;
 using Azure.Storage.Queues;
 using Azure.Storage.Blobs;
 using Azure.Core.Extensions;
+using CoinsAge.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoinsAge
 {
@@ -27,13 +29,17 @@ namespace CoinsAge
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CoinsAge1Context>(option => option.UseSqlServer(Configuration.GetConnectionString("CoinsAge1ContextConnection")));
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddAzureClients(builder =>
             {
                 builder.AddBlobServiceClient(Configuration["ConnectionStrings:coinsagestorage:blob"], preferMsi: true);
                 builder.AddQueueServiceClient(Configuration["ConnectionStrings:coinsagestorage:queue"], preferMsi: true);
             });
+
+            services.AddDbContext<CoinsAge2Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("CoinsAge2Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

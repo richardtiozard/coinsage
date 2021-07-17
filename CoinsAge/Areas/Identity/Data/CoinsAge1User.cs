@@ -25,5 +25,7 @@ namespace CoinsAge.Areas.Identity.Data
         [PersonalData]
         public string Role { set; get; }
 
+        public ICollection<News> News { get; set; }
+
     }
 }

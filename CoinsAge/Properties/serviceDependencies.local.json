@@ -12,6 +12,10 @@
       "type": "storage.azure",
       "connectionId": "coinsagestorage",
       "secretStore": "LocalSecretsFile"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "CoinsAge2Context"
     }
   }
 }

@@ -49,11 +49,36 @@ namespace CoinsAge.Controllers
             // The code in this section goes here
             CloudBlobContainer container = getBlobStorageInformation();
             CloudBlockBlob blob = container.GetBlockBlobReference("coinsageblob");
-            using (var fileStream = System.IO.File.OpenRead(@"C:\Users\Jason Liadi\Pictures\Blob\TestBlob.txt"))
+            using (var fileStream = System.IO.File.OpenRead(@"C:\Users\Jason Liadi\Pictures\Blob\Ouyang-nana.jpg"))
             {
                 blob.UploadFromStreamAsync(fileStream).Wait();
             }
             return "Success!";
+        }
+
+        public ActionResult ListItemsAsGallery()
+        {
+            CloudBlobContainer container = getBlobStorageInformation();
+            //Step 2: create the empty list to store for the blobs list information
+            List<string> blobs = new List<string>();
+            //step 3: get the listing record from the blob storage
+            BlobResultSegment result = container.ListBlobsSegmentedAsync(null).Result;
+            //step 4: to read blob listing from the storage
+            foreach (IListBlobItem item in result.Results)
+            {
+                //step 4.1. check the type of the blob : block blob or directory or page block
+                if (item.GetType() == typeof(CloudBlockBlob))
+                {
+                    CloudBlockBlob blob = (CloudBlockBlob)item;
+                    blobs.Add(blob.Name + "#" + blob.Uri.ToString());
+                }
+                else if (item.GetType() == typeof(CloudBlobDirectory))
+                {
+                    CloudBlobDirectory blob = (CloudBlobDirectory)item;
+                    blobs.Add(blob.Uri.ToString());
+                }
+            }
+            return View(blobs);
         }
     }
 }
