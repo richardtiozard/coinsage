@@ -9,14 +9,22 @@
     }
 </div>
 
-<div class="row px-5">
-    <div class="mt-5 col-8">
+<div class="row px-5 ">
+    <div class="mt-5 col-8 py-3">
         <h4 class="text-3">TRENDING NOW</h4>
         @foreach (var item in @ViewBag.TrendingNews)
         {
             <div class="w-100 row news-box mt-4">
                 <div class="col-3">
-                    asdf
+                    @foreach (var image in @ViewBag.NewsImage)
+                    {
+                        string[] link = image.Split("#");
+                        string[] fileid = link[0].Split(".");
+                        @if (Int64.Parse(fileid[0]) == item.News.NewsId)
+                        {
+                            <img src="@link[1]" class="w-100">
+                        }
+                    }
                 </div>
                 <div class="col-9">
                     <h5>@item.News.Title</h5>
@@ -27,18 +35,30 @@
     </div>
 
     <div class="mt-5 col-4">
-        <h4 class="text-3">MOST POPULAR NEWS</h4>
-        @foreach (var item in @ViewBag.PopularNews)
-        {
-            <div class="w-100 row news2-box mt-4">
-                <div class="col-3">
-                    asdf
+        <div class="p-3 shadow-lg">
+            <h4 class="text-3">MOST POPULAR NEWS</h4>
+            @foreach (var item in @ViewBag.PopularNews)
+            {
+                <div class="w-100 row news2-box mt-4">
+                    <div class="col-3">
+                        @foreach (var image in @ViewBag.NewsImage)
+                        {
+                            string[] link = image.Split("#");
+                            string[] fileid = link[0].Split(".");
+                            @if (Int64.Parse(fileid[0]) == item.News.NewsId)
+                            {
+                                <img src="@link[1]" class="w-100">
+                            }
+                        }
+                    </div>
+                    <div class="col-9">
+                        <h6>@item.News.Title</h6>
+                        <p class="text-4">@item.News.PublishDateTime</p>
+                    </div>
+                    <hr />
                 </div>
-                <div class="col-9">
-                    <h5>@item.News.Title</h5>
-                    <p>@item.News.Content</p>
-                </div>
-            </div>
-        }
+            }
+        </div>
+        
     </div>
 </div>

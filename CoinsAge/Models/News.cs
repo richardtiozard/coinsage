@@ -19,6 +19,8 @@ namespace CoinsAge.Models
         public string Content { set; get; }
 
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime PublishDateTime { set; get; }
 
         //Foreign Key
