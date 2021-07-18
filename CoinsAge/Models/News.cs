@@ -21,7 +21,11 @@ namespace CoinsAge.Models
         [Required]
         public DateTime PublishDateTime { set; get; }
 
-        //Foreign Key reference to User
+        //Foreign Key
         public CoinsAge1User User { get; set; }
+        public Category Category { get; set; }
+
+        public ICollection<TrendingNews> TrendingNews { get; set; }
+        public ICollection<PopularNews> PopularNews { get; set; }
     }
 }

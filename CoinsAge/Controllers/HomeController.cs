@@ -14,18 +14,22 @@ namespace CoinsAge.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly CoinsAge2Context _context;
+        private readonly CoinsAge1Context _context;
 
-        public HomeController(ILogger<HomeController> logger, CoinsAge2Context context)
+        public HomeController(ILogger<HomeController> logger, CoinsAge1Context context)
         {
             _logger = logger;
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            ViewData["Message"] = "Hello RAJESH!";
-            return View(await _context.News.ToListAsync());
+            ViewBag.News = _context.News;
+            ViewBag.Category = _context.Category;
+            ViewBag.TrendingNews = _context.TrendingNews.Include(p => p.News);
+            ViewBag.PopularNews = _context.PopularNews.Include(p => p.News);
+            
+            return View();
         }
 
         public IActionResult Privacy()

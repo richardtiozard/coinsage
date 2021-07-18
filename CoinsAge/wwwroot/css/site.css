@@ -1,4 +1,82 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿/*CUSTOM STYLE*/
+.text-1 {
+    color: #F8F9FA;
+}
+.text-2 {
+    color: #17181B;
+}
+.text-3 {
+    color: #d91f0d;
+}
+.bg-1 {
+    background-color: #17181B;
+}
+.bg-2 {
+    background-color: #F8F9FA;
+}
+
+.overflow-hidden{
+    overflow: hidden;
+}
+
+
+/*HOME INDEX*/
+.news-box{
+    height: 150px;
+    overflow-y: hidden;
+}
+.news2-box {
+    height: 75px;
+    overflow-y: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
