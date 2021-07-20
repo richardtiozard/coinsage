@@ -42,10 +42,20 @@ namespace CoinsAge.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.News = _context.News;
+            ViewBag.News = _context.News
+                .Include(p => p.Category)
+                .OrderByDescending(q => q.PublishDateTime)
+                .Take(3);
+
             ViewBag.Category = _context.Category;
-            ViewBag.TrendingNews = _context.TrendingNews.Include(p => p.News);
-            ViewBag.PopularNews = _context.PopularNews.Include(p => p.News);
+
+            ViewBag.TrendingNews = _context.TrendingNews
+                .Include(p => p.News)
+                .ThenInclude(q => q.Category);
+
+            ViewBag.PopularNews = _context.PopularNews
+                .Include(p => p.News)
+                .ThenInclude(q => q.Category);
 
             CloudBlobContainer container = getBlobStorageInformation();
             List<string> blobs = new List<string>();

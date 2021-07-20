@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jason Liadi\\Desktop\\APU Y3S6\\DDAC\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj": {}
+    "D:\\Asia Pacific University\\Semester 6\\Designing and Developing Applications on the Cloud\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jason Liadi\\Desktop\\APU Y3S6\\DDAC\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj": {
+    "D:\\Asia Pacific University\\Semester 6\\Designing and Developing Applications on the Cloud\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jason Liadi\\Desktop\\APU Y3S6\\DDAC\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj",
+        "projectUniqueName": "D:\\Asia Pacific University\\Semester 6\\Designing and Developing Applications on the Cloud\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj",
         "projectName": "CoinsAge",
-        "projectPath": "C:\\Users\\Jason Liadi\\Desktop\\APU Y3S6\\DDAC\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj",
-        "packagesPath": "C:\\Users\\Jason Liadi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jason Liadi\\Desktop\\APU Y3S6\\DDAC\\Assignment\\CoinsAge\\CoinsAge\\obj\\",
+        "projectPath": "D:\\Asia Pacific University\\Semester 6\\Designing and Developing Applications on the Cloud\\Assignment\\CoinsAge\\CoinsAge\\CoinsAge.csproj",
+        "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
+        "outputPath": "D:\\Asia Pacific University\\Semester 6\\Designing and Developing Applications on the Cloud\\Assignment\\CoinsAge\\CoinsAge\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jason Liadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\richa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
