@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "storage1": {
+      "restored": true,
+      "restoreTime": "2021-07-14T15:06:33.3722733Z"
+    },
+    "mssql2": {
+      "restored": true,
+      "restoreTime": "2021-07-16T17:19:34.1930152Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2021-07-14T15:06:10.4199118Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2021-05-21T13:23:32.2846349Z"
+    }
+  },
+  "parameters": {
+    "storage1.resourceGroupName": {
+      "Name": "storage1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "DefaultResourceGroup-SEA"
+    },
+    "storage1.subscriptionId": {
+      "Name": "storage1.subscriptionId",
+      "Type": "subscription",
+      "Value": "6da8b56b-3a77-4591-b06d-ab51481e8031"
+    }
+  }
+}

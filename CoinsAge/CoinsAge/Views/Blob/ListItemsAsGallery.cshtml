@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "ListItemsAsGallery";
+}
+
+<h1>ListItemsAsGallery</h1>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        string[] link = item.Split("#");
+        <li>
+            <img src="@link[1]" width="200px" height="200px" />
+            <span style="color:red">@link[0]</span>
+            <br /><br /><br />
+        </li>
+    }
+</ul>

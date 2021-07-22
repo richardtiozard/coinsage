@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "CoinsAge1ContextConnection"
+    },
+    "secrets1": {
+      "type": "secrets"
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "coinsagestorage"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "CoinsAge2Context"
+    }
+  }
+}

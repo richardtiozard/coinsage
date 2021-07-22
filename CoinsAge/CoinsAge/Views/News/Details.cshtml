@@ -1,0 +1,61 @@
+﻿@model CoinsAge.Models.News
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="bg-1 text-1 w-100 p-4 px-5">
+@foreach (var item in @ViewBag.Categories)
+{
+    <a asp-controller="News" asp-action="Category" asp-route-id="@item.CategoryId" class="text-1 text-decoration-none category-link">
+        <p class="d-inline mr-4">@item.CategoryName</p>
+    </a>
+}
+</div>
+
+<div class="container mt-5 shadow p-0">
+
+    <img src="@ViewBag.NewsImage" class="w-100 newsdetail-img" alt="News Image" />
+    <div class="p-4">
+        <div class="bg-3 text-1 font-size-1 px-3 py-1 d-inline-block font-weight-bold rounded-pill mb-3">@Html.DisplayFor(model => model.Category.CategoryName)</div>
+        <h2>@Html.DisplayFor(model => model.Title)</h2>
+        <p>
+            By:
+            <span class="text-4 mr-5">@Html.DisplayFor(model => model.User.FullName) </span>
+            Publish Date:
+            <span class="text-4">@Html.DisplayFor(model => model.PublishDateTime) </span>
+        </p>
+        <p>
+            @Html.DisplayFor(model => model.Content)
+        </p>
+    </div>
+</div>
+
+<div class="container mt-5 p-0">
+    <h4 class="text-3 font-weight-bold">RELATED NEWS</h4>
+    <div class="row justify-content-between">
+        @foreach (var item in @ViewBag.News)
+        {
+            <a asp-controller="News" asp-action="Details" asp-route-id="@item.NewsId" class="w-100 col-4 text-2 text-decoration-none">
+                <div class="newreleasenews-box mt-5 p-0 shadow-sm">
+                    @foreach (var image in @ViewBag.NewsImageList)
+                    {
+                        string[] link = image.Split("#");
+                        string[] fileid = link[0].Split(".");
+                        @if (Int64.Parse(fileid[0]) == item.NewsId)
+                        {
+                            <img src="@link[1]" class="w-100 newreleasenews-img">
+                        }
+
+                    }
+                    <div class="p-3">
+                        <div class="bg-3 text-1 font-size-1 px-3 py-1 d-inline-block font-weight-bold rounded-pill">@item.Category.CategoryName</div>
+                        <div class="text-4 font-size-1 d-inline-block float-right">@item.PublishDateTime</div>
+                        <h5 class="mt-2">@item.Title</h5>
+                    </div>
+
+                </div>
+            </a>
+        }
+    </div>
+</div>
