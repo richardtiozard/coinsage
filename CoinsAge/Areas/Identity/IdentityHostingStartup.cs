@@ -20,8 +20,16 @@ namespace CoinsAge.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("CoinsAge1ContextConnection")));
 
-                services.AddDefaultIdentity<CoinsAge1User>(options => options.SignIn.RequireConfirmedAccount = true)
+/*                services.AddDefaultIdentity<CoinsAge1User>()
+                    .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<CoinsAge1Context>();*/
+
+                services.AddIdentity<CoinsAge1User, IdentityRole>()
+                    .AddRoleManager<RoleManager<IdentityRole>>()
+                    .AddDefaultUI()
+                    .AddDefaultTokenProviders()
                     .AddEntityFrameworkStores<CoinsAge1Context>();
+
             });
         }
     }

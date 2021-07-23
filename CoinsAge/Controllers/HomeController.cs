@@ -45,7 +45,7 @@ namespace CoinsAge.Controllers
             ViewBag.News = _context.News
                 .Include(p => p.Category)
                 .OrderByDescending(q => q.PublishDateTime)
-                .Take(3);
+                .Take(6);
 
             ViewBag.Category = _context.Category;
 
@@ -57,23 +57,6 @@ namespace CoinsAge.Controllers
                 .Include(p => p.News)
                 .ThenInclude(q => q.Category);
 
-            CloudBlobContainer container = getBlobStorageInformation();
-            List<string> blobs = new List<string>();
-            BlobResultSegment result = container.ListBlobsSegmentedAsync(null).Result;
-            foreach (IListBlobItem item in result.Results)
-            {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-                    blobs.Add(blob.Name + "#" + blob.Uri.ToString());
-                }
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory blob = (CloudBlobDirectory)item;
-                    blobs.Add(blob.Uri.ToString());
-                }
-            }
-            ViewBag.NewsImage = blobs;
             return View();
         }
 

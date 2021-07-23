@@ -11,6 +11,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoinsAge.Views
 {
@@ -69,34 +70,6 @@ namespace CoinsAge.Views
 
             ViewBag.Categories = _context.Category;
 
-            List<string> listblobs = new List<string>();
-            String blobs = "";
-
-            CloudBlobContainer container = getBlobStorageInformation();
-            BlobResultSegment result = container.ListBlobsSegmentedAsync(null).Result;
-            foreach (IListBlobItem item in result.Results)
-            {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-                    listblobs.Add(blob.Name + "#" + blob.Uri.ToString());
-
-                    String[] blobid = blob.Name.Split(".");
-                    if (Int64.Parse(blobid[0]) == id)
-                    {
-                        blobs = blob.Uri.ToString();
-                    }
-                }
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory blob = (CloudBlobDirectory)item;
-                    listblobs.Add(blob.Uri.ToString());
-                    blobs = blob.Uri.ToString();
-                }
-            }
-            ViewBag.NewsImage = blobs;
-            ViewBag.NewsImageList = listblobs;
-
             return View(news);
         }
 
@@ -114,23 +87,6 @@ namespace CoinsAge.Views
 
             ViewBag.Categories = _context.Category;
 
-            CloudBlobContainer container = getBlobStorageInformation();
-            List<string> blobs = new List<string>();
-            BlobResultSegment result = container.ListBlobsSegmentedAsync(null).Result;
-            foreach (IListBlobItem item in result.Results)
-            {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-                    blobs.Add(blob.Name + "#" + blob.Uri.ToString());
-                }
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory blob = (CloudBlobDirectory)item;
-                    blobs.Add(blob.Uri.ToString());
-                }
-            }
-            ViewBag.NewsImage = blobs;
 
             return View();
         }

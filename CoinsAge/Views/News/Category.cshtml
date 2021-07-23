@@ -24,15 +24,7 @@
         <a asp-controller="News" asp-action="Details" asp-route-id="@item.NewsId" class="text-2 text-decoration-none">
             <div class="w-100 row trendnews-box mt-5 cursor-pointer">
                 <div class="col-3">
-                    @foreach (var image in @ViewBag.NewsImage)
-                    {
-                        string[] link = image.Split("#");
-                        string[] fileid = link[0].Split(".");
-                        @if (Int64.Parse(fileid[0]) == item.NewsId)
-                        {
-                            <img src="@link[1]" class="w-100">
-                        }
-                    }
+                    <img src="@item.ImageURL" class="w-100">
                 </div>
                 <div class="col-9">
                     <div class="bg-3 text-1 font-size-1 px-3 py-1 d-inline-block font-weight-bold rounded-pill">@item.Category.CategoryName</div>

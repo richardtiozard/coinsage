@@ -905,3 +905,4 @@ D:\Asia Pacific University\Semester 6\Designing and Developing Applications on t
 D:\Asia Pacific University\Semester 6\Designing and Developing Applications on the Cloud\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\CoinsAge.pdb
 D:\Asia Pacific University\Semester 6\Designing and Developing Applications on the Cloud\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\CoinsAge.genruntimeconfig.cache
 D:\Asia Pacific University\Semester 6\Designing and Developing Applications on the Cloud\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\News\Category.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\News\Category.cshtml.g.cs

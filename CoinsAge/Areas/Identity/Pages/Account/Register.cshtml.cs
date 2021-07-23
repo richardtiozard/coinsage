@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using CoinsAge.Data;
 
 namespace CoinsAge.Areas.Identity.Pages.Account
 {
@@ -22,12 +23,14 @@ namespace CoinsAge.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<CoinsAge1User> _signInManager;
         private readonly UserManager<CoinsAge1User> _userManager;
+        private readonly CoinsAge1Context _context;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
             UserManager<CoinsAge1User> userManager,
             SignInManager<CoinsAge1User> signInManager,
+            CoinsAge1Context context,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -35,6 +38,7 @@ namespace CoinsAge.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         [BindProperty]
@@ -88,6 +92,13 @@ namespace CoinsAge.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
+
+                    //USER ROLE
+                    IdentityUserRole<string> x = new IdentityUserRole<string>();
+                    x.RoleId = "2";
+                    x.UserId = user.Id;
+                    _context.UserRoles.Add(x);
+                    _context.SaveChanges();
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");

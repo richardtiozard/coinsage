@@ -14,6 +14,7 @@ using Azure.Storage.Blobs;
 using Azure.Core.Extensions;
 using CoinsAge.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace CoinsAge
 {
@@ -38,8 +39,10 @@ namespace CoinsAge
                 builder.AddQueueServiceClient(Configuration["ConnectionStrings:coinsagestorage:queue"], preferMsi: true);
             });
 
-            services.AddDbContext<CoinsAge2Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("CoinsAge2Context")));
+            services.AddDbContext<CoinsAge2Context>(options => options
+                .UseSqlServer(Configuration.GetConnectionString("CoinsAge2Context")));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

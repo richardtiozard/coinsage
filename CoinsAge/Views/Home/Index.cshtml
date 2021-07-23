@@ -19,15 +19,7 @@
         <a asp-controller="News" asp-action="Details" asp-route-id="@item.News.NewsId" class="text-2 text-decoration-none">
             <div class="w-100 row trendnews-box mt-5 cursor-pointer">
                 <div class="col-3">
-@*                    @foreach (var image in @ViewBag.NewsImage)
-                    {
-                        string[] link = image.Split("#");
-                        string[] fileid = link[0].Split(".");
-                        @if (Int64.Parse(fileid[0]) == item.News.NewsId)
-                        {
-                            <img src="@link[1]" class="w-100">
-                        }
-                    }*@
+                    <img src="@item.News.ImageURL" class="w-100">
                 </div>
                 <div class="col-9">
                     <div class="bg-3 text-1 font-size-1 px-3 py-1 d-inline-block font-weight-bold rounded-pill">@item.News.Category.CategoryName</div>
@@ -49,15 +41,7 @@
             <a asp-controller="News" asp-action="Details" asp-route-id="@item.News.NewsId" class="text-2 text-decoration-none">
                 <div class="w-100 row popnews-box mt-4">
                     <div class="col-3">
-@*                        @foreach (var image in @ViewBag.NewsImage)
-                        {
-                            string[] link = image.Split("#");
-                            string[] fileid = link[0].Split(".");
-                            @if (Int64.Parse(fileid[0]) == item.News.NewsId)
-                            {
-                                <img src="@link[1]" class="w-100">
-                            }
-                        }*@
+                        <img src="@item.News.ImageURL" class="w-100">
                     </div>
                     <div class="col-9">
                         <div class="bg-3 text-1 font-size-1 px-3 py-1 d-inline-block font-weight-bold rounded-pill">@item.News.Category.CategoryName</div>
@@ -81,17 +65,9 @@
         <div class="row justify-content-start ">
             @foreach (var item in @ViewBag.News)
             {
-            <a asp-controller="News" asp-action="Details" asp-route-id="@item.NewsId" class="w-100 col-3 text-2 text-decoration-none">
+            <a asp-controller="News" asp-action="Details" asp-route-id="@item.NewsId" class="w-100 col-4 text-2 text-decoration-none">
                 <div class="mx-5 newreleasenews-box mt-5 p-0 shadow-sm">
-@*                    @foreach (var image in @ViewBag.NewsImage)
-                    {
-                        string[] link = image.Split("#");
-                        string[] fileid = link[0].Split(".");
-                        @if (Int64.Parse(fileid[0]) == item.NewsId)
-                        {
-                            <img src="@link[1]" class="w-100 newreleasenews-img">
-                        }
-                    }*@
+                    <img src="@item.ImageURL" class="w-100 newreleasenews-img">
                     <div class="p-3">
                         <div class="bg-3 text-1 font-size-1 px-3 py-1 d-inline-block font-weight-bold rounded-pill">@item.Category.CategoryName</div>
                         <div class="text-4 font-size-1 d-inline-block float-right">@item.PublishDateTime</div>

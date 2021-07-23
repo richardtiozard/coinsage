@@ -23,6 +23,9 @@ namespace CoinsAge.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime PublishDateTime { set; get; }
 
+        [Required]
+        public string ImageURL { set; get; }
+
         //Foreign Key
         public CoinsAge1User User { get; set; }
         public Category Category { get; set; }
