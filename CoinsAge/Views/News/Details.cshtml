@@ -15,7 +15,7 @@
 
 <div class="container mt-5 shadow p-0">
 
-    <img src="@ViewBag.NewsImage" class="w-100 newsdetail-img" alt="News Image" />
+    <img src="@Html.DisplayFor(model => model.ImageURL)" class="w-100 newsdetail-img" alt="News Image" />
     <div class="p-4">
         <div class="bg-3 text-1 font-size-1 px-3 py-1 d-inline-block font-weight-bold rounded-pill mb-3">@Html.DisplayFor(model => model.Category.CategoryName)</div>
         <h2>@Html.DisplayFor(model => model.Title)</h2>

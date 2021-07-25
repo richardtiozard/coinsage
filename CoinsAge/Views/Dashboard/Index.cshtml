@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="row">
+    <div class="col-2 py-4 px-5 box-shadow-1 vh-100">
+        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Dashboard</div></a>
+        <a asp-controller="User" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Users</div></a>
+        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage News</div></a>
+        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Categories</div></a>
+    </div>
+    <div class="col-10 py-4 px-5">
+        <div class="row justify-content-around">
+            <div class="col-3 neumorph-1 text-center py-4">
+                <h6>All Users</h6>
+                <h2 class="mt-4">@ViewBag.TotalUsers</h2>
+            </div>
+            <div class="col-3 neumorph-1 text-center py-4">
+                <h6>Admin</h6>
+                <h2 class="mt-4">@ViewBag.TotalAdmin</h2>
+            </div>
+            <div class="col-3 neumorph-1 text-center py-4">
+                <h6>Writer</h6>
+                <h2 class="mt-4">@ViewBag.TotalWriter</h2>
+            </div>
+        </div>
+        <div class="row justify-content-around mt-5">
+            <div class="col-3 neumorph-1 text-center py-4">
+                <h6>All News</h6>
+                <h2 class="mt-4">@ViewBag.TotalNews</h2>
+            </div>
+            <div class="col-3 neumorph-1 text-center py-4">
+                <h6>Popular News</h6>
+                <h2 class="mt-4">@ViewBag.TotalPopularNews</h2>
+            </div>
+            <div class="col-3 neumorph-1 text-center py-4">
+                <h6>Trending News</h6>
+                <h2 class="mt-4">@ViewBag.TotalTrendingNews</h2>
+            </div>
+        </div>
+    </div>
+</div>

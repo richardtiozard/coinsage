@@ -5,13 +5,12 @@
     ViewData["Title"] = "Log in";
 }
 
-<div class="container">
-    <h1>@ViewData["Title"]</h1>
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
             <section>
                 <form id="account" method="post">
-                    <h4>Use a local account to log in.</h4>
+                    <h4>Log In to CoinsAge</h4>
                     <hr />
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
@@ -34,14 +33,6 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Log in</button>
-                    </div>
-                    <div class="form-group">
-                        <p>
-                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                        </p>
-                        <p>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                        </p>
                     </div>
                 </form>
             </section>

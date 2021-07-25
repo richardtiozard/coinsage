@@ -12,6 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using CoinsAge.Controllers;
+using CoinsAge.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace CoinsAge.Views
 {
@@ -19,9 +23,13 @@ namespace CoinsAge.Views
     {
         private readonly CoinsAge1Context _context;
 
-        public NewsController(CoinsAge1Context context)
+        private UserManager<CoinsAge1User> _userManager;
+
+
+        public NewsController(CoinsAge1Context context, UserManager<CoinsAge1User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         private CloudBlobContainer getBlobStorageInformation()
@@ -39,9 +47,15 @@ namespace CoinsAge.Views
         }
 
         // GET: News
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.News.ToListAsync());
+
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return View(await _context.News
+                .Include(x => x.User)
+                .Include(y => y.Category)
+                .Where(z => z.User.Id == userid).ToListAsync());
         }
 
         // GET: News/Details/5
@@ -94,6 +108,7 @@ namespace CoinsAge.Views
         // GET: News/Create
         public IActionResult Create()
         {
+            ViewBag.Categories = _context.Category;
             return View();
         }
 
@@ -102,14 +117,27 @@ namespace CoinsAge.Views
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NewsId,Title,Content,PublishDateTime")] News news)
+        public async Task<IActionResult> Create([Bind("NewsId,Title,Content,PublishDateTime,Category,ImageFile")] News news)
         {
             if (ModelState.IsValid)
             {
+                if (news.ImageFile != null)
+                {
+                    BlobController x = new BlobController();
+                    string imageURL = x.UploadBlob(news.NewsId.ToString(), news.ImageFile);
+                    news.ImageURL = imageURL;
+
+                }
+                news.PublishDateTime = DateTime.Now;
+                news.User = await _userManager.GetUserAsync(User);
+                news.Category = _context.Category.Where(x => x.CategoryId == Int64.Parse( Request.Form["Category"])).First();
                 _context.Add(news);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
+
             }
+            ViewBag.Categories = _context.Category;
             return View(news);
         }
 
@@ -122,6 +150,8 @@ namespace CoinsAge.Views
             }
 
             var news = await _context.News.FindAsync(id);
+            ViewBag.Categories = _context.Category;
+            ViewBag.NewsImage = news.ImageURL;
             if (news == null)
             {
                 return NotFound();
@@ -134,7 +164,7 @@ namespace CoinsAge.Views
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NewsId,Title,Content,PublishDateTime")] News news)
+        public async Task<IActionResult> Edit(int id, [Bind("NewsId,Title,Content,PublishDateTime,Category,ImageFile")] News news)
         {
             if (id != news.NewsId)
             {
@@ -145,6 +175,15 @@ namespace CoinsAge.Views
             {
                 try
                 {
+                    if (news.ImageFile != null)
+                    {
+                        BlobController x = new BlobController();
+                        string imageURL = x.UploadBlob(news.NewsId.ToString(), news.ImageFile);
+                        news.ImageURL = imageURL;
+
+                    }
+                    news.PublishDateTime = DateTime.Now;
+                    news.Category = _context.Category.Where(x => x.CategoryId == Int64.Parse(Request.Form["Category"])).First();
                     _context.Update(news);
                     await _context.SaveChangesAsync();
                 }

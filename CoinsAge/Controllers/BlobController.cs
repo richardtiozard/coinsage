@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -12,6 +13,11 @@ namespace CoinsAge.Controllers
 {
     public class BlobController : Controller
     {
+        public BlobController()
+        {
+
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -44,16 +50,18 @@ namespace CoinsAge.Controllers
             return View();
         }
 
-        public string UploadBlob()
+        public string UploadBlob(string filename, IFormFile file)
         {
             // The code in this section goes here
             CloudBlobContainer container = getBlobStorageInformation();
-            CloudBlockBlob blob = container.GetBlockBlobReference("coinsageblob");
-            using (var fileStream = System.IO.File.OpenRead(@"C:\Users\Jason Liadi\Pictures\Blob\Ouyang-nana.jpg"))
-            {
-                blob.UploadFromStreamAsync(fileStream).Wait();
-            }
-            return "Success!";
+            CloudBlockBlob blob = container.GetBlockBlobReference(filename);
+            var stream = file.OpenReadStream();
+            
+            blob.UploadFromStreamAsync(stream).Wait();
+
+            string imageURL = blob.Uri.AbsoluteUri;
+            
+            return imageURL;
         }
 
         public ActionResult ListItemsAsGallery()

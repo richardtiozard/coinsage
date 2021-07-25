@@ -16,6 +16,10 @@
     "mssql2": {
       "type": "mssql.local",
       "connectionId": "CoinsAge2Context"
+    },
+    "mssql3": {
+      "type": "mssql.local",
+      "connectionId": "CoinsAge3Context"
     }
   }
 }

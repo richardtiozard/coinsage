@@ -21,6 +21,31 @@
     background-color: #d91f0d;
 }
 
+.box-shadow-1{
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.hover-1:hover {
+    color: #d91f0d;
+}
+
+.neumorph-1 {
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+}
+
+.button1 {
+    background-color: #d91f0d;
+    color: #F8F9FA;
+    border: 2px solid #d91f0d;
+    transition: all 0.4s;
+}
+.button1:hover {
+    background-color: #bf1708;
+    border: 2px solid #bf1708;
+}
+
 .overflow-hidden{
     overflow: hidden;
 }

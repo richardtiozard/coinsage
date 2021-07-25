@@ -127,7 +127,6 @@ namespace CoinsAge.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PublishDateTime")
@@ -147,22 +146,6 @@ namespace CoinsAge.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("News");
-                });
-
-            modelBuilder.Entity("CoinsAge.Models.Newsletter", b =>
-                {
-                    b.Property<int>("NewsletterId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("NewsletterId");
-
-                    b.ToTable("Newsletter");
                 });
 
             modelBuilder.Entity("CoinsAge.Models.PopularNews", b =>

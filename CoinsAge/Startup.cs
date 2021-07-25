@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -41,6 +41,9 @@ namespace CoinsAge
 
             services.AddDbContext<CoinsAge2Context>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("CoinsAge2Context")));
+
+            services.AddDbContext<CoinsAge3Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("CoinsAge3Context")));
 
 
         }

@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "User";
+}
+
+<div class="row">
+    <div class="col-2 py-4 px-5 box-shadow-1 vh-100">
+        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Dashboard</div></a>
+        <a asp-controller="User" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Users</div></a>
+        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage News</div></a>
+        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Categories</div></a>
+    </div>
+    <div class="col-10 py-4 px-5">
+        <table class="table mt-4">
+            <colgroup>
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 10%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="text-left">
+                        Name
+                    </th>
+                    <th class="text-center">
+                        Email
+                    </th>
+                    <th class="text-center">
+                        Phone Number
+                    </th>
+                    <th class="text-center">
+                        Address
+                    </th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Users)
+                {
+                <tr>
+                    <td class="text-left">
+                        @item.FullName
+                    </td>
+                    <td class="text-center">
+                        @item.Email
+                    </td>
+                    <td class="text-center">
+                        @item.PhoneNumber
+                    </td>
+                    <td class="text-center">
+                        @item.Address
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt mx-2 text-danger"></i></a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

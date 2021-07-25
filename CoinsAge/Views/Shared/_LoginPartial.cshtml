@@ -10,11 +10,17 @@
         @if (User.IsInRole("Writer"))
         {
             <li class="nav-item">
+                <a asp-controller="News" asp-action="Index" id="newsindex" class="nav-link text-dark" title="My News">My News</a>
+            </li>
+            <li class="nav-item">
                 <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
             </li>
         }
         @if (User.IsInRole("Admin"))
         {
+            <li class="nav-item">
+                <a class="nav-link text-dark" id="register" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+            </li>
             <li class="nav-item">
                 <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
             </li>
@@ -29,7 +35,7 @@
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="nav-link text-dark" id="home" asp-controller="Home" asp-action="Index">Home</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>

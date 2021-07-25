@@ -33,7 +33,5 @@ namespace CoinsAge.Data
         public DbSet<TrendingNews> TrendingNews { get; set; }
         public DbSet<PopularNews> PopularNews { get; set; }
         public DbSet<Category> Category { get; set; }
-        public DbSet<Newsletter> Newsletter { get; set; }
-
     }
 }

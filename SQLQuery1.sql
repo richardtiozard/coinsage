@@ -36,6 +36,8 @@ insert into Category values
 ---                     NEWS                    ---
 ---------------------------------------------------
 Delete from News
+Delete from News
+Where NewsId = 38;
 
 UPDATE News
 SET ImageURL = 'https://coinsagestorage.blob.core.windows.net/coinsageblobcontainer/35.jpg'
