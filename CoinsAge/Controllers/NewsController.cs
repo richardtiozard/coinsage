@@ -106,6 +106,7 @@ namespace CoinsAge.Views
         }
 
         // GET: News/Create
+        [Authorize(Roles = "Writer")]
         public IActionResult Create()
         {
             ViewBag.Categories = _context.Category;
@@ -117,6 +118,7 @@ namespace CoinsAge.Views
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Create([Bind("NewsId,Title,Content,PublishDateTime,Category,ImageFile")] News news)
         {
             if (ModelState.IsValid)
@@ -142,6 +144,7 @@ namespace CoinsAge.Views
         }
 
         // GET: News/Edit/5
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -164,6 +167,7 @@ namespace CoinsAge.Views
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Edit(int id, [Bind("NewsId,Title,Content,PublishDateTime,Category,ImageFile")] News news)
         {
             if (id != news.NewsId)
@@ -175,12 +179,16 @@ namespace CoinsAge.Views
             {
                 try
                 {
+                    BlobController x = new BlobController();
                     if (news.ImageFile != null)
                     {
-                        BlobController x = new BlobController();
                         string imageURL = x.UploadBlob(news.NewsId.ToString(), news.ImageFile);
                         news.ImageURL = imageURL;
 
+                    }
+                    else
+                    {
+                        news.ImageURL = x.getImageURL(news.NewsId.ToString());
                     }
                     news.PublishDateTime = DateTime.Now;
                     news.Category = _context.Category.Where(x => x.CategoryId == Int64.Parse(Request.Form["Category"])).First();
@@ -204,6 +212,7 @@ namespace CoinsAge.Views
         }
 
         // GET: News/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -224,6 +233,7 @@ namespace CoinsAge.Views
         // POST: News/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var news = await _context.News.FindAsync(id);

@@ -908,3 +908,4 @@ C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debu
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\News\Index.cshtml.g.cs
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\Jason Liadi\Desktop\APU Y3S6\DDAC\Assignment\CoinsAge\CoinsAge\obj\Debug\netcoreapp3.1\Razor\Views\User\Delete.cshtml.g.cs

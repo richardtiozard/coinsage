@@ -101,10 +101,10 @@ namespace CoinsAge.Areas.Identity.Pages.Account
                     _context.UserRoles.Add(x);
                     _context.SaveChanges();
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    /*await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");*/
 
-                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
+/*                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
                     }
@@ -112,7 +112,8 @@ namespace CoinsAge.Areas.Identity.Pages.Account
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
-                    }
+                    }*/
+                    return Redirect("/User");
                 }
                 foreach (var error in result.Errors)
                 {

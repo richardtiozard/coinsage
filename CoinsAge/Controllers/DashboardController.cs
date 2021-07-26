@@ -1,4 +1,5 @@
 ﻿using CoinsAge.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace CoinsAge.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             //Total Users

@@ -24,5 +24,6 @@ namespace CoinsAge.Areas.Identity.Data
 
         public ICollection<News> News { get; set; }
 
+
     }
 }

@@ -56,11 +56,23 @@ namespace CoinsAge.Controllers
             CloudBlobContainer container = getBlobStorageInformation();
             CloudBlockBlob blob = container.GetBlockBlobReference(filename);
             var stream = file.OpenReadStream();
-            
+
+            blob.DeleteIfExistsAsync();
+
             blob.UploadFromStreamAsync(stream).Wait();
 
             string imageURL = blob.Uri.AbsoluteUri;
             
+            return imageURL;
+        }
+
+        public string getImageURL(string filename)
+        {
+            // The code in this section goes here
+            CloudBlobContainer container = getBlobStorageInformation();
+            CloudBlockBlob blob = container.GetBlockBlobReference(filename);
+            string imageURL = blob.Uri.AbsoluteUri;
+
             return imageURL;
         }
 

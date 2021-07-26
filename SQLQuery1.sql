@@ -4,10 +4,9 @@ select * from AspNetUsers;
 select * from AspNetUserRoles;
 select * from AspNetRoles;
 select * from News;
-select * from TrendingNews;
+
 select * from PopularNews;
 select * from Category;
-select * from Newsletter;
 
 ---------------------------------------------------
 ---                    USERS                    ---
@@ -37,7 +36,7 @@ insert into Category values
 ---------------------------------------------------
 Delete from News
 Delete from News
-Where NewsId = 38;
+Where NewsId = 41;
 
 UPDATE News
 SET ImageURL = 'https://coinsagestorage.blob.core.windows.net/coinsageblobcontainer/35.jpg'
