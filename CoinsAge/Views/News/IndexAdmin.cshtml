@@ -1,0 +1,69 @@
+﻿@model CoinsAge.Models.PopularNews;
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row">
+    <div class="col-2 py-4 px-5 box-shadow-1 vh-100">
+        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Dashboard</div></a>
+        <a asp-controller="User" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Writers</div></a>
+        <a asp-controller="News" asp-action="IndexAdmin"><div class="p-2 cursor-pointer text-2 hover-1">Manage News</div></a>
+        <a asp-controller="Category" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Categories</div></a>
+    </div>
+    <div class="col-10 py-4 px-5">
+        <div class="row">
+            <div class="col-3 text-left neumorph-2 py-3">
+                <h4 class="text-3">Popular News</h4>
+                <hr />
+                @foreach (var item in ViewBag.PopularNews)
+                {
+                    <div class="mt-4 cursor-pointer row align-items-center justify-content-start custom-icon-triggerhover">
+                        <div class="col-10 news-text-hover"><a class="text-2" asp-controller="News" asp-action="Details" asp-route-id="@item.News.NewsId">@item.News.Title</a></div>
+                        
+                        <form class="col-2 form-hover" asp-action="Delete" asp-controller="PopularNews" method="post">
+                            <button class="btn btn-default"><div class="custom-icon-hover"><i class="fas fa-chevron-right"></i></div></button>
+                            <input type="hidden" name="newsid" value="@item.News.NewsId" />
+                        </form>
+                    </div>
+                }
+            </div>
+            <div class="col-6 text-center py-3">
+                <h4 class="text-3">All News</h4>
+                <hr />
+                @foreach (var item in ViewBag.News)
+                {
+                    <div class="mt-4 cursor-pointer row align-items-center justify-content-center custom-icon-triggerhover">
+                        <form class="col-1 form-hover" asp-action="Create" asp-controller="PopularNews" method="post">
+                            <button class="btn btn-default"><div class="custom-icon-hover"><i class="fas fa-chevron-left"></i></div></button>
+                            <input type="hidden" name="newsid" value="@item.NewsId" />
+                        </form>
+
+                        <div class="col-10 news-text-hover"><a class="text-2" asp-controller="News" asp-action="Details" asp-route-id="@item.NewsId">@item.Title</a></div>
+
+                        <form class="col-1 form-hover" asp-action="Create" asp-controller="TrendingNews" method="post">
+                            <button class="btn btn-default"><div class="custom-icon-hover"><i class="fas fa-chevron-right"></i></div></button>
+                            <input type="hidden" name="newsid" value="@item.NewsId" />
+                        </form>
+                    </div>
+                }
+            </div>
+            <div class="col-3 text-right neumorph-2 py-3">
+                <h4 class="text-3">Trending News</h4>
+                <hr />
+                @foreach (var item in ViewBag.TrendingNews)
+                {
+            <div class="mt-4 cursor-pointer row align-items-center justify-content-end custom-icon-triggerhover">
+                <form class="col-2 form-hover" asp-action="Delete" asp-controller="TrendingNews" method="post">
+                    <button class="btn btn-default"><div class="custom-icon-hover"><i class="fas fa-chevron-left"></i></div></button>
+                    <input type="hidden" name="newsid" value="@item.News.NewsId" />
+                </form>
+                
+                <div class="col-10 news-text-hover"><a class="text-2" asp-controller="News" asp-action="Details" asp-route-id="@item.News.NewsId">@item.News.Title</a></div>
+            </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -5,9 +5,9 @@
 <div class="row">
     <div class="col-2 py-4 px-5 box-shadow-1 vh-100">
         <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Dashboard</div></a>
-        <a asp-controller="User" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Users</div></a>
-        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage News</div></a>
-        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Categories</div></a>
+        <a asp-controller="User" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Writers</div></a>
+        <a asp-controller="News" asp-action="IndexAdmin"><div class="p-2 cursor-pointer text-2 hover-1">Manage News</div></a>
+        <a asp-controller="Category" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Categories</div></a>
     </div>
     <div class="col-10 py-4 px-5">
         <div class="row justify-content-around">
@@ -36,6 +36,31 @@
             <div class="col-3 neumorph-1 text-center py-4">
                 <h6>Trending News</h6>
                 <h2 class="mt-4">@ViewBag.TotalTrendingNews</h2>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <h4 class="text-3">Activity Logs</h4>
+            <div class="row">
+                <div class="col-3"><b>Full Name</b></div>
+                <div class="col-3"><b>Email</b></div>
+                <div class="col-3"><b>Date Time</b></div>
+                <div class="col-3"><b>Activity</b></div>
+                @foreach (var item in @ViewBag.Logging)
+                {
+                    <div class="col-3">
+                        @item.fullname
+                    </div>
+                    <div class="col-3">
+                        @item.email
+                    </div>
+                    <div class="col-3">
+                        @item.datetime
+                    </div>
+                    <div class="col-3">
+                        @item.activity
+                    </div>
+                }
             </div>
         </div>
     </div>

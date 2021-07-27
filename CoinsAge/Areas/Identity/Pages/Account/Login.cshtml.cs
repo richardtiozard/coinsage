@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using CoinsAge.Models;
+using CoinsAge.Controllers;
+using CoinsAge.Data;
 
 namespace CoinsAge.Areas.Identity.Pages.Account
 {
@@ -21,14 +24,17 @@ namespace CoinsAge.Areas.Identity.Pages.Account
         private readonly UserManager<CoinsAge1User> _userManager;
         private readonly SignInManager<CoinsAge1User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly CoinsAge1Context _context;
 
         public LoginModel(SignInManager<CoinsAge1User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<CoinsAge1User> userManager)
+            UserManager<CoinsAge1User> userManager,
+            CoinsAge1Context context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _context = context;
         }
 
         [BindProperty]
@@ -83,6 +89,19 @@ namespace CoinsAge.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    CoinsAge1User loggeduser = _context.Users.Single(x => x.Email == Input.Email);
+                    DateTime dtnow = DateTime.Now;
+                    string now = dtnow.ToString().Replace(" ","").Replace("/", "").Replace(":", "");
+                    Logging log = new Logging(loggeduser.Id, now)
+                    {
+                        email = loggeduser.Email,
+                        fullname = loggeduser.FullName,
+                        activity = "Log In",
+                        datetime = dtnow
+                    };
+                    TableController tc = new TableController();
+                    tc.UploadEntity(log).Wait();
+
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }

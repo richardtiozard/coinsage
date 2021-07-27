@@ -1,6 +1,8 @@
 ﻿using CoinsAge.Data;
+using CoinsAge.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +40,9 @@ namespace CoinsAge.Controllers
 
             //Total Trending News
             ViewBag.TotalTrendingNews = _context.TrendingNews.Count();
+
+            CloudTable ct = TableController.getTableStorage();
+            ViewBag.Logging = ct.ExecuteQuery(new TableQuery<Logging>()).ToList();
 
             return View();
         }

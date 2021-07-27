@@ -13,5 +13,13 @@ namespace CoinsAge.Models
 
         //Foreign Key reference to News
         public News News { get; set; }
+
+        public PopularNews()
+        {
+        }
+        public PopularNews(News news)
+        {
+            this.News = news;
+        }
     }
 }

@@ -22,14 +22,14 @@ namespace CoinsAge.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
-/*            ViewBag.Users = await (from user in _context.Users
-                                   join userRole in _context.UserRoles
+            ViewBag.Users = await (from user in _context.Users
+                                   join userRole in _context.UserRoles.Where(x=> x.RoleId == "2")
                                    on user.Id equals userRole.UserId
                                    join role in _context.Roles
                                    on userRole.RoleId equals role.Id
                                    select user)
-                               .ToListAsync();*/
-            ViewBag.Users = await _context.Users.ToListAsync();
+                               .ToListAsync();
+            /*ViewBag.Users = await _context.Users.ToListAsync();*/
 
             return View();
         }

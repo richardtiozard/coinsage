@@ -32,20 +32,6 @@ namespace CoinsAge.Views
             _userManager = userManager;
         }
 
-        private CloudBlobContainer getBlobStorageInformation()
-        {
-            //step 1: read json
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
-            IConfigurationRoot configure = builder.Build();
-            //to get key access
-            //once link, time to read the content to get the connectionstring
-            CloudStorageAccount objectaccount = CloudStorageAccount.Parse(configure["ConnectionStrings:BlobStorageConnection"]);
-            CloudBlobClient blobclient = objectaccount.CreateCloudBlobClient();
-            //step 2: how to create a new container in the blob storage account.
-            CloudBlobContainer container = blobclient.GetContainerReference("coinsageblobcontainer");
-            return container;
-        }
-
         // GET: News
         [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Index()
@@ -56,6 +42,15 @@ namespace CoinsAge.Views
                 .Include(x => x.User)
                 .Include(y => y.Category)
                 .Where(z => z.User.Id == userid).ToListAsync());
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult IndexAdmin()
+        {
+            ViewBag.News = _context.News.OrderByDescending(x => x.PublishDateTime);
+            ViewBag.PopularNews = _context.PopularNews.Include(x => x.News).OrderByDescending(x => x.News.PublishDateTime);
+            ViewBag.TrendingNews = _context.TrendingNews.Include(x => x.News).OrderByDescending(x => x.News.PublishDateTime);
+            return View();
         }
 
         // GET: News/Details/5
@@ -212,7 +207,7 @@ namespace CoinsAge.Views
         }
 
         // GET: News/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -220,8 +215,8 @@ namespace CoinsAge.Views
                 return NotFound();
             }
 
-            var news = await _context.News
-                .FirstOrDefaultAsync(m => m.NewsId == id);
+            var news = await _context.News.FirstOrDefaultAsync(m => m.NewsId == id);
+
             if (news == null)
             {
                 return NotFound();
@@ -233,7 +228,7 @@ namespace CoinsAge.Views
         // POST: News/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var news = await _context.News.FindAsync(id);

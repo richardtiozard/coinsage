@@ -7,12 +7,12 @@
 <div class="row">
     <div class="col-2 py-4 px-5 box-shadow-1 vh-100">
         <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Dashboard</div></a>
-        <a asp-controller="User" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Users</div></a>
-        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage News</div></a>
-        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Categories</div></a>
+        <a asp-controller="User" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Writers</div></a>
+        <a asp-controller="News" asp-action="IndexAdmin"><div class="p-2 cursor-pointer text-2 hover-1">Manage News</div></a>
+        <a asp-controller="Category" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Categories</div></a>
     </div>
     <div class="col-10 py-4 px-5">
-        <a asp-area="Identity" asp-page="/Account/Register" class="d-block w-100 text-right text-success">Register Writer <i class="fas fa-plus"></i></a>
+        <a asp-area="Identity" asp-page="/Account/Register" class="d-block w-100 text-right text-3">Register Writer <i class="fas fa-chevron-right"></i></a>
         <table class="table mt-4">
             <colgroup>
                 <col span="1" style="width: 25%;">

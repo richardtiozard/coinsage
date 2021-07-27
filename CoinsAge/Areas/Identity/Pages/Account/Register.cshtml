@@ -5,34 +5,42 @@
 }
 
 
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <h4>Create a new account.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.ConfirmPassword"></label>
-                    <input asp-for="Input.ConfirmPassword" class="form-control" />
-                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                </div>
-                <button type="submit" class="btn btn-primary">Register</button>
-            </form>
+<div class="row">
+    <div class="col-2 py-4 px-5 box-shadow-1 vh-100">
+        <a asp-controller="Dashboard" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Dashboard</div></a>
+        <a asp-controller="User" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Writers</div></a>
+        <a asp-controller="News" asp-action="IndexAdmin"><div class="p-2 cursor-pointer text-2 hover-1">Manage News</div></a>
+        <a asp-controller="Category" asp-action="Index"><div class="p-2 cursor-pointer text-2 hover-1">Manage Categories</div></a>
+    </div>
+    <div class="col-10 py-4 px-5">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <h4>Create a new account.</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
 
 
 @section Scripts {

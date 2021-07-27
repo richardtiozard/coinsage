@@ -15,5 +15,13 @@ namespace CoinsAge.Models
         public string CategoryName { set; get; }
 
         public ICollection<News> News { get; set; }
+
+        public Category()
+        {
+        }
+        public Category(string categoryname)
+        {
+            this.CategoryName = categoryname;
+        }
     }
 }
