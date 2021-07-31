@@ -54,4 +54,4 @@ jobs:
         app-name: 'coinsage'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_81a1f167dd6542018cea7ce5639f6cf3 }}
-        package: .
+        
