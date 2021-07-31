@@ -42,7 +42,7 @@ namespace CoinsAge.Controllers
             ViewBag.TotalTrendingNews = _context.TrendingNews.Count();
 
             CloudTable ct = TableController.getTableStorage();
-            ViewBag.Logging = ct.ExecuteQuery(new TableQuery<Logging>()).ToList();
+            ViewBag.Logging = ct.ExecuteQuery(new TableQuery<Logging>()).OrderByDescending(x => x.datetime).ToList();
 
             return View();
         }
